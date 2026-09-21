@@ -1,1 +1,1 @@
-# genealoty
+# genealogy
