@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Greg Rushton</title>
+<meta name="description" content="Greg Rushton — homeowner, software tinkerer, and family history researcher in Easton, Massachusetts.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,600;1,500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink-900:#12202c;
+    --ink-800:#1c303f;
+    --parchment:#e9e2cc;
+    --parchment-dim:rgba(233,226,204,0.62);
+    --brick:#b14c32;
+    --moss:#7c8f6a;
+    --line:#3a4e5c;
+  }
+
+  *{box-sizing:border-box;}
+
+  html{scroll-behavior:smooth;}
+
+  body{
+    margin:0;
+    background:var(--ink-900);
+    color:var(--parchment);
+    font-family:'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size:17px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  a{color:var(--parchment);}
+  a:focus-visible, button:focus-visible{
+    outline:2px solid var(--brick);
+    outline-offset:3px;
+  }
+
+  .spine{
+    position:fixed;
+    top:0; left:0; bottom:0;
+    width:6px;
+    background:var(--brick);
+    z-index:2;
+  }
+
+  @media (max-width:640px){
+    .spine{ width:4px; }
+  }
+
+  main{
+    max-width:660px;
+    margin:0 auto;
+    padding:0 32px 96px 48px;
+  }
+
+  @media (max-width:640px){
+    main{ padding:0 20px 72px 28px; }
+  }
+
+  /* ---------- Hero ---------- */
+
+  .hero{
+    position:relative;
+    padding:96px 0 64px;
+    overflow:hidden;
+  }
+
+  .hero svg.lineage{
+    position:absolute;
+    top:-10px; right:-40px;
+    width:340px;
+    height:auto;
+    opacity:0.16;
+    z-index:0;
+    pointer-events:none;
+  }
+
+  @media (max-width:640px){
+    .hero{ padding:64px 0 40px; }
+    .hero svg.lineage{ width:220px; top:10px; right:-60px; }
+  }
+
+  .hero-inner{ position:relative; z-index:1; }
+
+  h1{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-style:italic;
+    font-size:clamp(2.4rem, 6vw, 3.4rem);
+    line-height:1.05;
+    margin:0 0 14px;
+    letter-spacing:-0.01em;
+  }
+
+  .tagline{
+    font-size:1.08rem;
+    color:var(--parchment-dim);
+    max-width:38ch;
+    margin:0;
+  }
+
+  /* ---------- Sections ---------- */
+
+  section{
+    padding:44px 0;
+    border-top:1px solid var(--line);
+  }
+
+  h2{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    font-size:1.3rem;
+    margin:0 0 18px;
+    color:var(--parchment);
+  }
+
+  p{ margin:0 0 14px; color:var(--parchment-dim); }
+  p:last-child{ margin-bottom:0; }
+
+  .entries{
+    list-style:none;
+    margin:0;
+    padding:0;
+  }
+
+  .entries li{
+    padding:14px 0;
+    border-bottom:1px solid var(--line);
+    display:flex;
+    gap:18px;
+    align-items:baseline;
+  }
+
+  .entries li:last-child{ border-bottom:none; }
+
+  .entries .mark{
+    flex:0 0 auto;
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    background:var(--moss);
+    margin-top:8px;
+  }
+
+  .entries .entry-body strong{
+    font-weight:600;
+    color:var(--parchment);
+  }
+
+  .entries .entry-body span{
+    display:block;
+    color:var(--parchment-dim);
+    font-size:0.95rem;
+    margin-top:2px;
+  }
+
+  .links{
+    display:flex;
+    flex-direction:column;
+    gap:2px;
+  }
+
+  .links a{
+    text-decoration:none;
+    border-bottom:1px solid var(--line);
+    padding:14px 0;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    transition:border-color 0.15s ease, color 0.15s ease;
+  }
+
+  .links a:last-child{ border-bottom:none; }
+
+  .links a:hover, .links a:focus-visible{
+    border-color:var(--brick);
+    color:var(--brick);
+  }
+
+  .links .site-name{ font-weight:500; }
+  .links .site-meta{
+    font-size:0.9rem;
+    color:var(--parchment-dim);
+  }
+
+  footer{
+    padding:32px 0 0;
+    font-size:0.88rem;
+    color:var(--parchment-dim);
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+  }
+</style>
+</head>
+<body>
+
+<div class="spine" aria-hidden="true"></div>
+
+<main>
+
+  <section class="hero">
+    <svg class="lineage" viewBox="0 0 300 260" aria-hidden="true">
+      <g fill="none" stroke="var(--moss)" stroke-width="1.4">
+        <path d="M20 240 V140"/>
+        <path d="M20 140 H120"/>
+        <path d="M120 140 V40"/>
+        <path d="M120 40 H220"/>
+        <path d="M120 90 H200"/>
+        <path d="M20 190 H90"/>
+        <circle cx="20" cy="240" r="3" fill="var(--moss)" stroke="none"/>
+        <circle cx="90" cy="190" r="3" fill="var(--moss)" stroke="none"/>
+        <circle cx="200" cy="90" r="3" fill="var(--moss)" stroke="none"/>
+        <circle cx="220" cy="40" r="3" fill="var(--moss)" stroke="none"/>
+      </g>
+    </svg>
+    <div class="hero-inner">
+      <h1>Greg Rushton</h1>
+      <p class="tagline">Homeowner and software tinkerer in Easton, Massachusetts, spending most of my spare hours tracing family lines back through New England, the Maritimes, Quebec, and Italy.</p>
+    </div>
+  </section>
+
+  <section id="about">
+    <h2>About</h2>
+    <p>I work in software and like building small, useful tools — the kind of habit that eventually turns into a GitHub account full of half-finished side projects. This one, gregrushton.com, is where the finished ones land.</p>
+    <p>Outside of that, I'm a beekeeper and genealogist by hobby: parish registers, and the occasional afternoon lost in a scanned 19th-century ledger.</p>
+  </section>
+
+  <section id="research">
+    <h2>Currently researching</h2>
+    <ul class="entries">
+      <li>
+        <span class="mark" aria-hidden="true"></span>
+        <span class="entry-body">
+          <strong>Rushton line</strong> — my great-grandfather Royal Rushton, of Oxford, Cumberland County, Nova Scotia.
+          <span>Working back through Maritime Canadian records</span>
+        </span>
+      </li>
+      <li>
+        <span class="mark" aria-hidden="true"></span>
+        <span class="entry-body">
+          <strong>Higgins &amp; Damren lines</strong> — an open Mayflower Society (GSMD) application in progress.
+          <span>Documenting descent for submission</span>
+        </span>
+      </li>
+      <li>
+        <span class="mark" aria-hidden="true"></span>
+        <span class="entry-body">
+          <strong>Coarr &amp; Phely lines</strong> — St-Sylvestre, Lotbinière, Quebec.
+          <span>Working from 1858 parish register records</span>
+        </span>
+      </li>
+      <li>
+        <span class="mark" aria-hidden="true"></span>
+        <span class="entry-body">
+          <strong>Mitchell line</strong> — a family of Maine.
+          <span>Building out the tree with primary sources</span>
+        </span>
+      </li>
+    </ul>
+  </section>
+
+  <section id="other">
+    <h2>Also around to</h2>
+    <p>Learning Spanish, French, and Italian.</p>
+  </section>
+
+  <section id="elsewhere">
+    <h2>Elsewhere</h2>
+    <div class="links">
+      <a href="https://github.com/rushtong" target="_blank" rel="noopener">
+        <span class="site-name">GitHub</span>
+        <span class="site-meta">@rushtong</span>
+      </a>
+      <a href="mailto:gregory.rushton@gmail.com">
+        <span class="site-name">Email</span>
+        <span class="site-meta">gregory.rushton@gmail.com</span>
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <p>Built by hand, hosted on GitHub Pages.</p>
+  </footer>
+
+</main>
+
+</body>
+</html>
