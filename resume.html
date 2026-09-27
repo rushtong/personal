@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Résumé — Greg Rushton</title>
+<meta name="description" content="Résumé of Greg Rushton, Principal Software Engineer.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,600;1,500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink-900:#12202c;
+    --ink-800:#1c303f;
+    --parchment:#e9e2cc;
+    --parchment-dim:rgba(233,226,204,0.62);
+    --brick:#b14c32;
+    --moss:#7c8f6a;
+    --line:#3a4e5c;
+  }
+
+  *{box-sizing:border-box;}
+
+  body{
+    margin:0;
+    background:var(--ink-900);
+    color:var(--parchment);
+    font-family:'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  a{ color:var(--parchment); }
+  a:focus-visible, button:focus-visible{
+    outline:2px solid var(--brick);
+    outline-offset:3px;
+  }
+
+  .spine{
+    position:fixed;
+    top:0; left:0; bottom:0;
+    width:6px;
+    background:var(--brick);
+    z-index:2;
+  }
+
+  @media (max-width:640px){ .spine{ width:4px; } }
+  @media print{ .spine{ display:none; } }
+
+  main{
+    max-width:720px;
+    margin:0 auto;
+    padding:0 32px 96px 48px;
+  }
+
+  @media (max-width:640px){
+    main{ padding:0 20px 72px 28px; }
+  }
+
+  @media print{
+    main{ max-width:none; padding:0 0.4in; }
+    body{ background:#fff; color:#1c1c1c; font-size:11px; }
+    a{ color:#1c1c1c; text-decoration:none; }
+  }
+
+  /* ---------- Header ---------- */
+
+  header{
+    padding:72px 0 36px;
+    border-bottom:1px solid var(--line);
+  }
+
+  @media (max-width:640px){ header{ padding:48px 0 28px; } }
+  @media print{ header{ padding:0 0 14px; border-bottom-color:#ccc; } }
+
+  .back{
+    display:inline-block;
+    font-size:0.85rem;
+    color:var(--parchment-dim);
+    text-decoration:none;
+    border-bottom:1px solid var(--line);
+    margin-bottom:28px;
+  }
+
+  .back:hover, .back:focus-visible{ color:var(--brick); border-color:var(--brick); }
+
+  @media print{ .back{ display:none; } }
+
+  h1{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-style:italic;
+    font-size:clamp(2rem, 5vw, 2.7rem);
+    line-height:1.1;
+    margin:0 0 6px;
+    letter-spacing:-0.01em;
+  }
+
+  @media print{ h1{ font-style:normal; color:#12202c; } }
+
+  .role-line{
+    font-size:1.02rem;
+    color:var(--parchment-dim);
+    margin:0 0 20px;
+  }
+
+  .contact{
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px 18px;
+    font-size:0.9rem;
+    color:var(--parchment-dim);
+    list-style:none;
+    margin:0;
+    padding:0;
+  }
+
+  .contact a{ color:inherit; text-decoration:none; border-bottom:1px solid var(--line); }
+  .contact a:hover, .contact a:focus-visible{ color:var(--brick); border-color:var(--brick); }
+
+  /* ---------- Sections ---------- */
+
+  section{
+    padding:40px 0;
+    border-top:1px solid var(--line);
+  }
+
+  @media print{ section{ padding:16px 0; border-top-color:#ddd; } }
+
+  h2{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    font-size:1.15rem;
+    margin:0 0 20px;
+    color:var(--parchment);
+  }
+
+  @media print{ h2{ color:#12202c; font-size:1rem; margin-bottom:10px; } }
+
+  #summary p{ color:var(--parchment-dim); margin:0; max-width:60ch; }
+
+  /* Skills */
+
+  .skills-grid{
+    display:grid;
+    grid-template-columns:auto 1fr;
+    gap:10px 20px;
+  }
+
+  @media (max-width:560px){
+    .skills-grid{ grid-template-columns:1fr; gap:4px; }
+  }
+
+  .skills-grid dt{
+    font-weight:500;
+    color:var(--parchment-dim);
+    font-size:0.9rem;
+    white-space:nowrap;
+  }
+
+  .skills-grid dd{ margin:0; color:var(--parchment); }
+
+  @media (max-width:560px){
+    .skills-grid dd{ margin-bottom:8px; color:var(--parchment-dim); }
+  }
+
+  /* Experience */
+
+  .job{
+    padding:22px 0;
+    border-bottom:1px solid var(--line);
+  }
+
+  .job:first-child{ padding-top:0; }
+  .job:last-child{ border-bottom:none; padding-bottom:0; }
+
+  @media print{ .job{ border-bottom-color:#eee; padding:10px 0; } }
+
+  .job-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    gap:16px;
+    flex-wrap:wrap;
+    margin-bottom:4px;
+  }
+
+  .job-title{ font-weight:600; color:var(--parchment); font-size:1.02rem; }
+  .job-org{ color:var(--parchment-dim); font-size:0.95rem; }
+  .job-dates{ font-size:0.85rem; color:var(--parchment-dim); white-space:nowrap; }
+
+  .job ul.duties{
+    margin:10px 0 0;
+    padding-left:18px;
+    color:var(--parchment-dim);
+  }
+
+  .job ul.duties li{ margin-bottom:5px; }
+  .job ul.duties li:last-child{ margin-bottom:0; }
+
+  .job p{ margin:10px 0 0; color:var(--parchment-dim); }
+
+  @media print{ .job-title{ color:#12202c; } }
+
+  /* Open source / publications */
+
+  .repo-list{
+    list-style:none;
+    margin:0 0 12px;
+    padding:0;
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+  }
+
+  .repo-list a{
+    text-decoration:none;
+    color:var(--moss);
+    border-bottom:1px solid transparent;
+    font-weight:500;
+  }
+
+  .repo-list a:hover, .repo-list a:focus-visible{ border-color:var(--moss); }
+  .repo-list span{ color:var(--parchment-dim); font-size:0.92rem; }
+
+  .pub-list{
+    list-style:none;
+    margin:0;
+    padding:0;
+  }
+
+  .pub-list li{
+    padding:10px 0;
+    border-top:1px solid var(--line);
+    color:var(--parchment-dim);
+    font-size:0.92rem;
+    line-height:1.55;
+  }
+
+  .pub-list li:first-child{ border-top:none; padding-top:0; }
+
+  @media print{ .pub-list li{ border-top-color:#eee; } }
+
+  /* Education */
+
+  .degree{ padding:10px 0; }
+  .degree strong{ color:var(--parchment); }
+  .degree span{ display:block; color:var(--parchment-dim); font-size:0.92rem; margin-top:2px; }
+
+  footer{
+    padding:32px 0 0;
+    font-size:0.85rem;
+    color:var(--parchment-dim);
+  }
+
+  @media print{ footer{ display:none; } }
+</style>
+</head>
+<body>
+
+<div class="spine" aria-hidden="true"></div>
+
+<main>
+
+  <header>
+    <a class="back" href="./index.html">&larr; Greg Rushton</a>
+    <h1>Gregory Rushton</h1>
+    <p class="role-line">Principal Software Engineer</p>
+    <ul class="contact">
+      <li>North Easton, MA</li>
+      <li><a href="mailto:gregory.rushton@gmail.com">gregory.rushton@gmail.com</a></li>
+      <li><a href="https://github.com/rushtong" target="_blank" rel="noopener">github.com/rushtong</a></li>
+      <li><a href="https://orcid.org/0000-0002-4648-4229" target="_blank" rel="noopener">ORCID</a></li>
+    </ul>
+  </header>
+
+  <section id="summary">
+    <h2>Summary</h2>
+    <p>Principal Software Engineer with over 20 years of experience building scalable web applications and research platforms. Expertise spans full-stack development, data governance, and cloud-based biomedical data systems, with a track record of working alongside scientists and product teams to deliver tools that accelerate research. Active open-source contributor across Java, Scala, Kotlin, and Groovy.</p>
+  </section>
+
+  <section id="skills">
+    <h2>Technical skills</h2>
+    <dl class="skills-grid">
+      <dt>Languages</dt>
+      <dd>Java, TypeScript, JavaScript (ES6+/JSX), Scala, Kotlin, Groovy, SQL, Perl, PHP</dd>
+      <dt>Frontend</dt>
+      <dd>React, HTML5, CSS3, JSP</dd>
+      <dt>Backend &amp; frameworks</dt>
+      <dd>Dropwizard, Spring, Hibernate, JDBI</dd>
+      <dt>Databases &amp; search</dt>
+      <dd>Postgres, Oracle, MySQL, Elasticsearch</dd>
+      <dt>Data &amp; cloud</dt>
+      <dd>GCP, Kubernetes, Docker, REST APIs, OWL (Web Ontology Language)</dd>
+      <dt>Other tools</dt>
+      <dd>Git, CI/CD pipelines, Photoshop</dd>
+    </dl>
+  </section>
+
+  <section id="experience">
+    <h2>Experience</h2>
+
+    <div class="job">
+      <div class="job-head">
+        <div>
+          <div class="job-title">Principal Software Engineer, Data Sciences Platform</div>
+          <div class="job-org">The Broad Institute, Cambridge, MA</div>
+        </div>
+        <div class="job-dates">Jan 2017 – present</div>
+      </div>
+      <ul class="duties">
+        <li>Lead full-stack feature development for DUOS, a platform automating data use oversight to enable secure biomedical data access.</li>
+        <li>Build front-end features in React (JSX, TypeScript) and architect back-end services with Java, Dropwizard, Postgres, Elasticsearch, and JDBI.</li>
+        <li>Apply OWL to model data use restrictions and policies, improving compliance and governance automation.</li>
+        <li>Collaborate across teams on the Terra Data Repository and Terra, platforms supporting global-scale genomic data storage and analysis.</li>
+        <li>Mentor engineers, improve CI/CD pipelines, and drive adoption of sustainable engineering practices.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-head">
+        <div>
+          <div class="job-title">Senior Software Engineer</div>
+          <div class="job-org">The Broad Institute, Cambridge, MA</div>
+        </div>
+        <div class="job-dates">Jul 2010 – Dec 2016</div>
+      </div>
+      <ul class="duties">
+        <li>Developed and maintained multiple in-house applications supporting the Genetic Analysis Platform, including data management, finance portals, and laboratory information management systems (LIMS).</li>
+        <li>Designed and implemented the Biological Samples Platform and contributed to systems integrating with SAP.</li>
+        <li>Primary developer for a finance portal enabling project management, quoting, invoicing, and billing workflows.</li>
+        <li>Awarded the "Exceptional Year" award (2008) for contributions to the Broad Quote Server.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-head">
+        <div>
+          <div class="job-title">Software Engineer</div>
+          <div class="job-org">The Broad Institute, Cambridge, MA</div>
+        </div>
+        <div class="job-dates">Nov 2005 – Jul 2010</div>
+      </div>
+      <ul class="duties">
+        <li>Built Java-backed web applications leveraging JBoss, Stripes, Hibernate, Oracle, and Spring for dependency injection.</li>
+        <li>Led the redesign of SNAP, a PHP application for genetic research, improving usability and researcher adoption.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-head">
+        <div>
+          <div class="job-title">Web Developer</div>
+          <div class="job-org">Pearson Education / Prentice Hall, Needham, MA</div>
+        </div>
+        <div class="job-dates">Feb 2001 – Nov 2005</div>
+      </div>
+      <ul class="duties">
+        <li>Lead developer for PHSuccessnet, a three-tier J2EE WebLogic/Oracle application supporting digital education products.</li>
+        <li>Directed redesigns, integrations with third-party vendors, and upgrades from WebLogic 6 to 8.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-head">
+        <div>
+          <div class="job-title">Instructor</div>
+          <div class="job-org">University of Massachusetts Lowell, Lowell, MA</div>
+        </div>
+        <div class="job-dates">Jan 1999 – Aug 2010</div>
+      </div>
+      <ul class="duties">
+        <li>Taught online courses in Introduction to JavaScript and Introduction to Perl.</li>
+        <li>Designed curriculum, managed student submissions, and provided feedback to support student success.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-head">
+        <div>
+          <div class="job-title">Earlier roles</div>
+          <div class="job-org">Sametz Blackstone Associates · UMass Lowell · Funk Software</div>
+        </div>
+        <div class="job-dates">1996 – 2000</div>
+      </div>
+      <p>New Media Producer (Sametz Blackstone Associates), Project Manager (UMass Lowell), and Sales Engineer (Funk Software).</p>
+    </div>
+  </section>
+
+  <section id="open-source">
+    <h2>Open source</h2>
+    <p style="color:var(--parchment-dim); margin:0 0 16px;">Active contributor on GitHub: <a href="https://github.com/rushtong" target="_blank" rel="noopener" style="border-bottom:1px solid var(--line);">github.com/rushtong</a></p>
+    <ul class="repo-list">
+      <li><a href="https://github.com/DataBiosphere/duos-ui" target="_blank" rel="noopener">DUOS</a> <span>(React) — Data Use Oversight System</span></li>
+      <li><a href="https://github.com/DataBiosphere/consent" target="_blank" rel="noopener">Consent</a> <span>(Java) — back-end service for DUOS</span></li>
+      <li><a href="https://github.com/DataBiosphere/consent-ontology" target="_blank" rel="noopener">Ontology</a> <span>(Java) — back-end service for DUOS</span></li>
+    </ul>
+    <p style="color:var(--parchment-dim); margin:0;">Additional contributions to open-source projects in the Java, Scala, Kotlin, and Groovy communities.</p>
+  </section>
+
+  <section id="publications">
+    <h2>Publications &amp; research</h2>
+    <p style="color:var(--parchment-dim); margin:0 0 16px;">Contributor to the <a href="https://www.ga4gh.org/" target="_blank" rel="noopener" style="border-bottom:1px solid var(--line);">Global Alliance for Genomics and Health (GA4GH)</a>, working on standards development and implementation in biomedical data sharing. Co-author on peer-reviewed publications advancing international genomics interoperability:</p>
+    <ul class="pub-list">
+      <li>Rehm HL, Page AJH, Smith L, et al. "GA4GH: International policies and standards for data sharing across genomic research and healthcare." <em>Cell.</em> 2017;172(4):1045–1049. PMID 30062047</li>
+      <li>Philippakis AA, Azzariti DR, Beltran S, et al. "The Matchmaker Exchange: A platform for rare disease gene discovery." <em>Nat Genet.</em> 2021. PMID 34820660</li>
+      <li>Gaedigk A, et al. "Pharmacogenomic standardization: Current efforts within GA4GH." <em>Nat Genet.</em> 2021. PMID 34820659</li>
+      <li>Vozikis A, et al. "Federated data sharing in genomics: GA4GH solutions." <em>Cell Genomics.</em> 2022. PMID 35072136</li>
+      <li>Cabili MN, et al. "The GA4GH Phenopacket Schema: Enabling exchange of computable phenotype information." <em>Nat Biotechnol.</em> 2022. PMID 35772014</li>
+      <li>Thorogood A, et al. "GA4GH: International policies and frameworks for responsible genomic data sharing." <em>Nat Genet.</em> 2023. PMID 36778584</li>
+    </ul>
+  </section>
+
+  <section id="education">
+    <h2>Education</h2>
+    <div class="degree">
+      <strong>M.Ed., Educational Administration and Technology in Schools</strong>
+      <span>University of Massachusetts Lowell — 1997</span>
+    </div>
+    <div class="degree">
+      <strong>B.S., Civil Engineering, minor in American Literature</strong>
+      <span>University of Massachusetts Lowell — 1994</span>
+    </div>
+  </section>
+
+  <footer>
+    <p>&larr; <a href="./index.html">Back to gregrushton.com</a></p>
+  </footer>
+
+</main>
+
+</body>
+</html>
